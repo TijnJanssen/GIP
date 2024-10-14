@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Fiets voor bejaarden</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <script src="./js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <main class="frame-1">
+        <img class="logo" src="./img/logo.png" alt="logo">
+        <img class="bikeFoto" src="./img/bike_foto.png" alt="bike foto">
+        <div>
+            <img id="textBackground" src="./img/text background.png" alt="text Background">
+            <p id="text">Fiets voor Bejaarden is een manier om actief te blijven door beelden te onthullen terwijl je
+                aan de pedalen draait. Hoe meer je draait, hoe sneller de afbeelding zich openbaart. Aan het einde wordt
+                de tijd getoond waarin je het plaatje hebt weten te verzamelen.</p>
+        </div>
+    </main>
+    <div class="fr-1-2-3-4-5cont">
+        <div class="frame-2">
+            <button class="buttons" id="bergen-btn" onclick="slideAnim('foto')">
+                <p class="btn-text">Bergen</p>
+            </button>
+            <button class="buttons" id="kunst-btn" onclick="slideAnim('foto')">
+                <p class="btn-text" style='color:#4B3F3F'>Kunst</p>
+            </button>
+            <button class="buttons" id="strand-btn" onclick="slideAnim('foto')">
+                <p class="btn-text">Strand</p>
+            </button>
+            <button class="buttons" id="auto-btn" onclick="slideAnim('foto')">
+                <p class="btn-text">Auto's</p>
+            </button>
+            <button class="buttons" id="dieren-btn" onclick="slideAnim('foto')">
+                <p class="btn-text">Dieren</p>
+            </button>
+            <button class="buttons" id="ruimte-btn" onclick="slideAnim('foto')">
+                <p class="btn-text">Ruimte</p>
+            </button>
+
+        </div>
+        <div class="frame-3">
+            <div class="tooltip-cont">
+                <button class="level-btn" id="easy-level" onclick="slideAnim('level','easy')">
+                    <span class="tooltiptext">Amateur level</span>
+                </button>
+            </div>
+            <div class="tooltip-cont">
+                <button class="level-btn" id="medium-level" onclick="slideAnim('level','medium')">
+                    <span class="tooltiptext">Medium level</span>
+                </button>
+            </div>
+            <div class="tooltip-cont">
+                <button class="level-btn" id="complex-level" onclick="slideAnim('level','complex')">
+                    <span class="tooltiptext">Complex level</span>
+                </button>
+            </div>
+        </div>
+        <div class="frame-4">
+            <canvas id="imgCanvas"></canvas>
+            <button class="btn btn-success" id="tn-btn" onclick="showImg()">
+                click
+            </button>
+        </div>
+        <div class="frame-5">
+
+        </div>
+    </div>
+    
+</body>
+<script>
+        const canvas = document.getElementById('imgCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let currentX = 0;
+        let currentY = 0;
+        
+        function initializeCanvas() {
+            canvas.width = 4000;
+            canvas.height = 4000;
+            ctx.fillStyle = '#9ec9ba';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        
+        initializeCanvas();
+    </script>
+</html>
+<!-- const canvas = document.getElementById('imgCanvas');
+    const width = canvas.width;
+    const height = canvas.height;
+    const ctx = canvas.getContext('2d');
+    let currentX = Math.floor(Math.random() * width);
+    console.log('currentX');
+    if (currentX > width){
+        currentX = Math.floor(Math.random() * width);
+        console.log('currentX');
+    }
+    let currentY = Math.floor(Math.random() * height);
+    if (currentX > height){
+        currentX = Math.floor(Math.random() * height);
+        console.log('currentY');
+    }
+
+    function initializeCanvas() {
+        canvas.width = 4000;
+        canvas.height = 4000;
+        ctx.fillStyle = '#9ec9ba';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    initializeCanvas(); -->
