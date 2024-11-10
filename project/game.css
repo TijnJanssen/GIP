@@ -16,8 +16,8 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100%;
-
 }
+
 
 .frame-2 {
     width: 100%;
@@ -40,6 +40,7 @@ body {
     justify-content: center;
 }
 
+
 .frame-4 {
     width: 100%;
     height: 100vh;
@@ -55,9 +56,8 @@ body {
     top: 0;
     left: 100%;
     position: absolute;
-    background-color: #f0f0f0;
+    background-color: #88CDF6;
 }
-
 
 .hidden {
     display: none;
@@ -92,7 +92,7 @@ body {
     }
 }
 
-/*game website */
+/* game website */
 /* ------------------------------------------------------------- */
 /* frame-2 */
 
@@ -110,6 +110,12 @@ body {
     box-shadow: 11px 8px 4px rgba(28, 49, 39, 0.25);
     background-size: cover;
     border-width: 0px;
+}
+
+@media only screen and (min-width:1501px) {
+    .buttons {
+        scale: 1.3;
+    }
 }
 
 #bergen-btn {
@@ -148,6 +154,12 @@ body {
 }
 
 /* frame-3 */
+
+@media only screen and (min-width:1501px) {
+    #lvl-row {
+        scale: 1.3;
+    }
+}
 
 .tooltip-cont {
     position: relative;
@@ -217,6 +229,89 @@ body {
 .selectedPhoto {
     border: 3px solid orangered;
 }
+
 .selectedLevel {
     border: 3px solid orangered;
+}
+
+/* frame-5 */
+.score-text {
+    margin-top: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    position: relative;
+    text-align: center;
+    color: #FFC986;
+}
+
+#score-area {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    position: relative;
+    text-align: center;
+    color: #FFC986;
+    border: 0;
+    background: none;
+    justify-self: center;
+    display: flex;
+}
+
+/* From Uiverse.io by nikk7007 */
+.reload-btn {
+    margin-top: 10rem;
+    display: flex;
+    justify-self: center;
+    --color: #FFC986;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+}
+
+.reload-btn::before,
+.reload-btn::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+}
+
+.reload-btn::before {
+    top: -1em;
+    left: -1em;
+}
+
+.reload-btn::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.reload-btn:hover::before,
+.reload-btn:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+.reload-btn:hover {
+    color: #88CDF6;
+}
+
+.reload-btn:active {
+    filter: brightness(.8);
 }

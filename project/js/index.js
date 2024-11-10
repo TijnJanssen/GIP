@@ -1,7 +1,3 @@
-function redirectToGame() {
-    window.location.href = "game.html";
-}
-
 
 // game website
 // img path
@@ -60,11 +56,11 @@ const categories = {
 function randomIndx(categorieName) {
     const categorie = categories[categorieName];
     let randomIndex = Math.floor(Math.random() * categorie.length);
-        $("#imgCanvas").css("background-image", `url(${categorie[randomIndex]})`);
+    $("#imgCanvas").css("background-image", `url(${categorie[randomIndex]})`);
     console.log(categorie[randomIndex])
 }
 
-let pixSize
+let pixSize = 0;
 function slideAnim(elem, elem2) {
     if (elem == 'foto') {
         randomIndx(elem2);
@@ -93,7 +89,6 @@ function slideAnim(elem, elem2) {
 }
 
 
-
 // select btn with keyboard
 let selectedPhoto = 0;
 let selectedLevel = 0;
@@ -103,7 +98,7 @@ $(window).keydown(function (evt) {
     // console.log(evt.which)
     // select photo
     if (evt.which == 65) { // a
-        let buttonIds = []        
+        let buttonIds = []
         const buttons = document.querySelectorAll('.buttonPhoto');
         buttons.forEach(button => {
             buttonIds.push(button.id);
@@ -126,7 +121,7 @@ $(window).keydown(function (evt) {
     }
 
     // select level
-    if (level == 'true' ) {
+    if (level == 'true') {
         if (evt.which == 65) { // a
             let btnIds = []
             const buttons = document.querySelectorAll('.buttonLevel');
@@ -164,10 +159,10 @@ $(window).keydown(function (evt) {
             $('.frame-2').removeClass('slide-out')
             level = ''
             enter = 0
+
         }
     }
 })
-
 
 // del pix
 const canvas = document.getElementById('imgCanvas');
@@ -181,25 +176,141 @@ let currentY = 0;
 function initializeCanvas() {
     canvas.width = 4000;
     canvas.height = 4000;
-    ctx.fillStyle = '#9ec9ba';
+    ctx.fillStyle = '#939AF7';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function showImg() {
-    ctx.clearRect(currentX, currentY, pixSize, pixSize);
-    currentX += pixSize;
-
-    if (currentX >= canvas.width) {
-        currentX = 0;
-        currentY += pixSize;
+let time = 0;
+let timer;
+let isRunning = false;
+function startTimer() {
+    if (!isRunning) {
+        isRunning = true;
+        timer = setInterval(() => {
+            time++;
+            console.log(time)
+        }, 1000);
     }
+}
+function stopTimer() {
+    clearInterval(timer);
+    isRunning = false;
+}
 
+// del pixels met space
+let baseScore = 200;
+let coeficient;
+let score = 0;
+$(window).keydown(function (evt) {
+    if (evt.which == 32 && pixSize > 0) { // space
+        startTimer()
+        ctx.clearRect(currentX, currentY, pixSize, pixSize);
+        currentX += pixSize;
+
+        if (currentX >= canvas.width) {
+            currentX = 0;
+            currentY += pixSize;
+        }
+    }
     if (currentX >= canvas.width || currentY >= canvas.height) {
+        stopTimer()
         $('.frame-5').addClass('slide-in');
         $('.frame-4').addClass('slide-out').removeClass('slide-in');
         $('.frame-3').removeClass('slide-out');
-    }
-}
+        switch (pixSize) {
+            case 500:
+                coeficient = 1
+                break;
+            case 250:
+                coeficient = 2
+                break;
+            case 150:
+                coeficient = 3
+                break;
 
+        }
+        if (score == 0) {
+            score = Math.round(((baseScore * coeficient) / time) * 100);
+            $('#score-area').val(score);
+            console.log(score)
+
+            if (score > 0) {
+                setTimeout(startConfetti, 1000);
+            }
+
+        }
+    }
+})
+// del pixels met btn
+// function showImg() {
+//     startTimer()
+//     ctx.clearRect(currentX, currentY, pixSize, pixSize);
+//     currentX += pixSize;
+
+//     if (currentX >= canvas.width) {
+//         currentX = 0;
+//         currentY += pixSize;
+//     }
+
+//     if (currentX >= canvas.width || currentY >= canvas.height) {
+//         stopTimer()
+//         $('.frame-5').addClass('slide-in');
+//         $('.frame-4').addClass('slide-out').removeClass('slide-in');
+//         $('.frame-3').removeClass('slide-out');
+//         switch (pixSize) {
+//             case 500:
+//                 coeficient = 1
+//                 console.log(score)
+//                 break;
+//             case 250:
+//                 coeficient = 2
+//                 break;
+//             case 150:
+//                 coeficient = 3
+//                 break;
+
+//         }
+//         if (score == 0) {
+//             score = ((baseScore * coeficient) / time) * 100;
+//             $('#score-area').val(score);
+//         }
+//     }
+// }
 initializeCanvas();
 
+// frame-5
+
+// confetti
+const duration = 15 * 1000,
+    animationEnd = Date.now() + duration,
+    defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function startConfetti() {
+    const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
+
+        const particleCount = 150 * (timeLeft / duration);
+
+        // since particles fall down, start a bit higher than random
+        confetti(
+            Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+            })
+        );
+        confetti(
+            Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+            })
+        );
+    }, 250);
+}
