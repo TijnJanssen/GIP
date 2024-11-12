@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    /* border: 2px solid green; */
 }
 
 body {
@@ -15,6 +16,7 @@ body {
     width: 100%;
     height: 100vh;
     background-color: #88CDF6;
+
 }
 
 .frame-2 {
@@ -26,243 +28,352 @@ body {
     background-color: #88CDF6;
 }
 
-.frame-3 {
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 100%;
-    position: absolute;
-    background-color: #88CDF6;
-}
-
-.frame-4 {
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 100%;
-    position: absolute;
-    background-color: #f0f0f0;
-}
-.frame-5{
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 100%;
-    position: absolute;
-    background-color: #f0f0f0;
-}
-
 .fr-1-2-3-4-5cont {
     position: relative;
     overflow: hidden;
     width: 100%;
     height: 100%;
-
 }
 
-/* slide animation */
-.slide-in {
-    animation: slideIn 1s forwards;
-}
 
-@keyframes slideIn {
-    0% {
-        left: 100%;
-    }
 
-    100% {
-        left: 0;
-    }
-}
-
-.slide-out {
-    animation: slideOut 1s forwards;
-}
-
-@keyframes slideOut {
-    0% {
-        left: 0;
-    }
-
-    100% {
-        left: -100%;
-    }
-}
-
-/* ----------------- */
+/* Frame-1 */
 .logo {
-    width: 115px;
-    height: 115px;
-    position: absolute;
-    margin-top: 40px;
-    margin-left: 90px;
+    max-width: 100%;
+    max-height: 10%;
+    position: relative;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
 }
 
 .bikeFoto {
-    width: 890px;
-    height: 580px;
-    position: absolute;
-    margin-top: 356px;
-    margin-left: 70px;
+    position: relative;
+    margin-top: 2rem;
+    width: 100%;
+    margin-left: 1rem;
+}
+
+.text-container {
+    position: relative;
+    max-width: 100%;
+
+}
+
+.background-container {
+    display: flex;
+    align-items: center;
+    top: 15%;
+    position: relative;
+    height: 80%;
+    background-image: url('./webimg/text_background.png');
+    background-size: cover;
+    background-position: center;
 }
 
 #text {
-    width: 650px;
-    height: 350px;
-    position: absolute;
-    margin-top: 445px;
-    margin-left: 1143px;
-    margin-right: 117px;
-    font-size: 34px;
-    font-family: "Montserrat", sans-serif;
-}
-
-#textBackground {
-    width: 940px;
-    height: 600px;
-    position: absolute;
-    margin-top: 284px;
-    margin-left: 960px;
-}
-
-.buttons {
-    width: 500px;
-    height: 250px;
-    position: absolute;
-    border-radius: 45px;
-    box-shadow: 11px 8px 4px rgba(28, 49, 39, 0.25);
-}
-
-#bergen-btn {
-    margin-top: 223px;
-    margin-left: 106px;
-    background-image: url('./img/bergen-btn.png');
-    background-size: cover;
-    border-width: 0px;
-}
-
-#kunst-btn {
-    margin-top: 626px;
-    margin-left: 106px;
-    background-image: url('./img/kunst-btn.png');
-    background-size: cover;
-    border-width: 0px;
-}
-
-#strand-btn {
-    margin-top: 223px;
-    margin-left: 710px;
-    background-image: url('./img/strand-btn.png');
-    background-size: cover;
-    border-width: 0px;
-}
-
-#auto-btn {
-    margin-top: 626px;
-    margin-left: 710px;
-    background-image: url('./img/auto-btn.png');
-    background-size: cover;
-    border-width: 0px;
-}
-
-#dieren-btn {
-    margin-top: 223px;
-    margin-left: 1314px;
-    background-image: url('./img/dieren-btn.png');
-    background-size: cover;
-    border-width: 0px;
-}
-
-#ruimte-btn {
-    margin-top: 626px;
-    margin-left: 1314px;
-    background-image: url('./img/ruimte-btn.png');
-    background-size: cover;
-    border-width: 0px;
-}
-
-.btn-text {
-    font-family: "Lalezar", system-ui;
-    font-size: 96px;
-    text-align: center;
-    color: aliceblue;
-}
-
-/* frame-3 */
-
-.tooltip-cont {
+    color: rgba(91, 94, 135, 1);
     position: relative;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    padding-left: 13%;
+    padding-right: 8%;
 }
 
-.tooltip-cont .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    top: 100%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 0.3s;
+/* frame-2 btn */
+.type--A {
+    --line_color: #555555;
+    --back_color: #ffecf6;
 }
 
-.tooltip-cont:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-    display: inline;
+.type--B {
+    --line_color: #1b1919;
+    --back_color: #e9ecff;
 }
 
-.level-btn {
-    width: 415px;
-    height: 415px;
-    border-width: 0px;
-    border-radius: 111px;
-    box-shadow: 13px 10px 10px rgba(252, 236, 222, 0.5);
-    position: absolute;
+.type--C {
+    --line_color: #00135c;
+    --back_color: #defffa;
 }
 
-#easy-level {
-    margin-left: 233px;
-    margin-top: 328px;
-    background-image: url('./img/easy\ level.png');
-    background-size: cover;
+.button {
+    position: relative;
+    z-index: 0;
+    width: 240px;
+    height: 56px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--line_color);
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
 }
 
-#medium-level {
-    margin-left: 732px;
-    margin-top: 328px;
-    background-image: url('./img/medium\ level.png');
-    background-size: cover;
-
-}
-
-#complex-level {
-    margin-left: 1272px;
-    margin-top: 328px;
-    background-image: url('./img/complex\ level.png');
-    background-size: cover;
-
-}
-
-/* frame 4 */
-#tn-btn{
-    width: 250px;
-    height: 100px;
-    font-size: 25px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-#imgCanvas{
+.button__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height:100%;
-    background-image: url("./ImgForDem/22807.jpg");
-    background-size: cover;
+    height: 100%;
 }
-/* ----------- */
+
+.button::before,
+.button::after,
+.button__text::before,
+.button__text::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--line_color);
+    transition: all 0.5s ease;
+}
+
+.button::before {
+    top: 0;
+    left: 54px;
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.button::after {
+    top: 0;
+    right: 54px;
+    width: 8px;
+}
+
+.button__text::before {
+    bottom: 0;
+    right: 54px;
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.button__text::after {
+    bottom: 0;
+    left: 54px;
+    width: 8px;
+}
+
+.button__line {
+    position: absolute;
+    top: 0;
+    width: 56px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.button__line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 300px;
+    border: solid 3px var(--line_color);
+}
+
+.button__line:nth-child(1),
+.button__line:nth-child(1)::before {
+    left: 0;
+}
+
+.button__line:nth-child(2),
+.button__line:nth-child(2)::before {
+    right: 0;
+}
+
+.button:hover {
+    letter-spacing: 6px;
+}
+
+.button:hover::before,
+.button:hover .button__text::before {
+    width: 8px;
+}
+
+.button:hover::after,
+.button:hover .button__text::after {
+    width: calc(100% - 56px * 2 - 16px);
+}
+
+.button__drow1,
+.button__drow2 {
+    position: absolute;
+    z-index: -1;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+}
+
+.button__drow1 {
+    top: -16px;
+    left: 40px;
+    width: 32px;
+    height: 0;
+    transform: rotate(30deg);
+}
+
+.button__drow2 {
+    top: 44px;
+    left: 77px;
+    width: 32px;
+    height: 0;
+    transform: rotate(-127deg);
+}
+
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2::before,
+.button__drow2::after {
+    content: "";
+    position: absolute;
+}
+
+.button__drow1::before {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-60deg);
+}
+
+.button__drow1::after {
+    top: -10px;
+    left: 45px;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(69deg);
+}
+
+.button__drow2::before {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-146deg);
+}
+
+.button__drow2::after {
+    bottom: 26px;
+    left: -40px;
+    width: 0;
+    height: 32px;
+    border-radius: 16px;
+    transform-origin: 16px 16px;
+    transform: rotate(-262deg);
+}
+
+.button__drow1,
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2,
+.button__drow2::before,
+.button__drow2::after {
+    background: var(--back_color);
+}
+
+.button:hover .button__drow1 {
+    animation: drow1 ease-in 0.06s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow1::before {
+    animation: drow2 linear 0.08s 0.06s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow1::after {
+    animation: drow3 linear 0.03s 0.14s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow2 {
+    animation: drow4 linear 0.06s 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow2::before {
+    animation: drow3 linear 0.03s 0.26s;
+    animation-fill-mode: forwards;
+}
+
+.button:hover .button__drow2::after {
+    animation: drow5 linear 0.06s 0.32s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes drow1 {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 100px;
+    }
+}
+
+@keyframes drow2 {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    11% {
+        opacity: 1;
+    }
+
+    100% {
+        width: 120px;
+    }
+}
+
+@keyframes drow3 {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 80px;
+    }
+}
+
+@keyframes drow4 {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 120px;
+    }
+}
+
+@keyframes drow5 {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 124px;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:not(:last-child) {
+    margin-bottom: 64px;
+}
