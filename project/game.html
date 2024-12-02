@@ -95,9 +95,6 @@
         </div>
         <div class=" frame-4">
             <canvas id="imgCanvas"></canvas>
-            <!-- <button class="btn btn-success" id="tn-btn" onclick="showImg()">
-                click
-            </button> -->
         </div>
         <div class="frame-5 conatiner-fluid">
             <p class="score-text">
@@ -105,8 +102,13 @@
             </p>
             <input id="score-area" disabled value="">
             </input>
-            <button class="reload-btn" onclick="location.reload()"> Begin Opnieuw
-            </button>
+            <div class="custom-buttons">
+                <div class="buttons" style="box-shadow:none;">
+                    <button class="btn-green" onclick="reloadbtn()">
+                        <img class="icon" src="https://htmlacademy.ru/assets/icons/reload-6x-white.png"> Reload
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
