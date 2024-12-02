@@ -236,12 +236,12 @@ body {
 
 /* frame-5 */
 .score-text {
-    margin-top: 2rem;
+    margin-top: 5rem;
     font-family: 'Montserrat', sans-serif;
     font-size: 5rem;
     position: relative;
     text-align: center;
-    color: #FFC986;
+    color: rgba(73, 87, 129, 1);
 }
 
 #score-area {
@@ -249,69 +249,60 @@ body {
     font-size: 5rem;
     position: relative;
     text-align: center;
-    color: #FFC986;
+    color: rgba(73, 87, 129, 1);
     border: 0;
     background: none;
     justify-self: center;
     display: flex;
 }
 
-/* From Uiverse.io by nikk7007 */
-.reload-btn {
-    margin-top: 10rem;
-    display: flex;
-    justify-self: center;
-    --color: #FFC986;
-    padding: 0.8em 1.7em;
-    background-color: transparent;
-    border-radius: .3em;
+
+.custom-buttons .buttons {
+    width: 400px;
+    margin: 50px auto;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.custom-buttons button {
     position: relative;
-    overflow: hidden;
+    width: 300px;
+    height: 60px;
+    margin: 20px auto;
+    padding: 0;
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    border: none;
+    outline: none;
     cursor: pointer;
-    transition: .5s;
-    font-weight: 400;
-    font-size: 17px;
-    border: 1px solid;
-    font-family: inherit;
-    text-transform: uppercase;
-    color: var(--color);
-    z-index: 1;
+    overflow: hidden;
+    transition: transform 0.4s ease-in-out;
 }
 
-.reload-btn::before,
-.reload-btn::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 50px;
-    transform: translate(-50%, -50%);
+.custom-buttons button:active {
+    top: 1px;
+    box-shadow: none;
+}
+
+.custom-buttons .icon {
     position: absolute;
-    border-radius: 50%;
-    z-index: -1;
-    background-color: var(--color);
-    transition: 1s ease;
+    left: 20px;
 }
 
-.reload-btn::before {
-    top: -1em;
-    left: -1em;
+.custom-buttons .btn-green {
+    border-radius: 1rem;
+    background: #1abc9c;
+    border-bottom: 2px solid #12ab8d;
+    box-shadow: inset 0 -2px #12ab8d;
 }
 
-.reload-btn::after {
-    left: calc(100% + 1em);
-    top: calc(100% + 1em);
+.custom-buttons .btn-green .icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.4s ease-in-out;
 }
 
-.reload-btn:hover::before,
-.reload-btn:hover::after {
-    height: 410px;
-    width: 410px;
-}
-
-.reload-btn:hover {
-    color: #88CDF6;
-}
-
-.reload-btn:active {
-    filter: brightness(.8);
+.custom-buttons .btn-green:hover .icon {
+    transform: rotate(360deg) scale(1.2);
 }

@@ -93,11 +93,12 @@ function slideAnim(elem, elem2) {
 let selectedPhoto = 0;
 let selectedLevel = 0;
 let level = '';
-let enter = 0
+let enter = 0;
+let gameplay = false;
 $(window).keydown(function (evt) {
     // console.log(evt.which)
     // select photo
-    if (evt.which == 65) { // a
+    if (evt.which == 65 && !gameplay) { // a
         let buttonIds = []
         const buttons = document.querySelectorAll('.buttonPhoto');
         buttons.forEach(button => {
@@ -109,20 +110,23 @@ $(window).keydown(function (evt) {
         if (selectedPhoto == buttonIds.length) {
             selectedPhoto = 0
         }
+        enter = 1;
     }
-    if (evt.which == 13 && level !== 'true') { // enter 
+    if (evt.which == 13 && level !== 'true' && enter == 1) { // enter 
         let selectedPh = $('.selectedPhoto').val()
         randomIndx(selectedPh);
         $('.frame-1').addClass('hidden')
         $('.frame-3').addClass('slide-in')
         $('.frame-2').addClass('slide-out')
-        level = 'true'
-        return;
+        level = 'true';
+        console.log('enter-photo')
+        enter = 0;
+
     }
 
     // select level
     if (level == 'true') {
-        if (evt.which == 65) { // a
+        if (evt.which == 65 ) { // a
             let btnIds = []
             const buttons = document.querySelectorAll('.buttonLevel');
             buttons.forEach(button => {
@@ -159,6 +163,8 @@ $(window).keydown(function (evt) {
             $('.frame-2').removeClass('slide-out')
             level = ''
             enter = 0
+            console.log('enter-lvl')
+            gameplay = true;
 
         }
     }
@@ -239,46 +245,15 @@ $(window).keydown(function (evt) {
             }
 
         }
-    }
+    }                                                                                                               
 })
-// del pixels met btn
-// function showImg() {
-//     startTimer()
-//     ctx.clearRect(currentX, currentY, pixSize, pixSize);
-//     currentX += pixSize;
 
-//     if (currentX >= canvas.width) {
-//         currentX = 0;
-//         currentY += pixSize;
-//     }
-
-//     if (currentX >= canvas.width || currentY >= canvas.height) {
-//         stopTimer()
-//         $('.frame-5').addClass('slide-in');
-//         $('.frame-4').addClass('slide-out').removeClass('slide-in');
-//         $('.frame-3').removeClass('slide-out');
-//         switch (pixSize) {
-//             case 500:
-//                 coeficient = 1
-//                 console.log(score)
-//                 break;
-//             case 250:
-//                 coeficient = 2
-//                 break;
-//             case 150:
-//                 coeficient = 3
-//                 break;
-
-//         }
-//         if (score == 0) {
-//             score = ((baseScore * coeficient) / time) * 100;
-//             $('#score-area').val(score);
-//         }
-//     }
-// }
 initializeCanvas();
 
 // frame-5
+if ($('.frame-5').hasClass('slide-in')) {
+    setTimeout(startConfetti, 1000);
+}
 
 // confetti
 const duration = 15 * 1000,
@@ -288,7 +263,7 @@ const duration = 15 * 1000,
 function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
 }
-
+                                                                                                                                                                                           
 function startConfetti() {
     const interval = setInterval(function () {
         const timeLeft = animationEnd - Date.now();
@@ -313,4 +288,10 @@ function startConfetti() {
             })
         );
     }, 250);
+}
+
+function reloadbtn() {
+    setTimeout(function() {
+        location.reload();
+    }, 500)
 }
