@@ -65,7 +65,7 @@ body {
     top: 15%;
     position: relative;
     height: 80%;
-    background-image: url('./webimg/text_background.png');
+    background-image: url('../webimg/text_background.png');
     background-size: cover;
     background-position: center;
 }
