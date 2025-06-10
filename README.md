@@ -45,14 +45,19 @@ Fiets voor Bejaarden is een leuk en actief spel voor ouderen. Het spel combineer
 ## Projectstructuur
 ```
 project/
-├── ImgForDem/           # Map met afbeeldingen (bergen, strand, etc.)
-├── game.html            # Hoofdpagina van het spel
-├── index.html           # Startpagina
-├── index.js             # JavaScript-code voor het spel
-├── LICENSE             # LICENSE
-└── README.md            # Dit bestand
+├── css/                # Bestanden voor stijlen
+├── img/                # Extra afbeeldingen
+├── ImgForDem/          # Map met afbeeldingen voor het spel (bergen, strand, etc.)
+├── js/                 # JavaScript-map
+      └──index.js       #JavaScript bestand
+├── webimg/             # Webafbeeldingen
+├── game.html           # Hoofdpagina van het spel
+├── index.html          # Startpagina
+└── index.js            # JavaScript-code voor het spel
 Arduino/FietsenVoorBejaarden/
 └── FietsenVoorBejaarden.ino  # Arduino-code voor fietsbesturing
+├── LICENSE             # LICENSE
+└── README.md            # Dit bestand
 ```
 ## Moeilijkheidsgraden
 - **Makkelijk**: Grote blokjes (500x500 pixels).
