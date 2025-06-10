@@ -21,7 +21,7 @@ Fiets voor Bejaarden is een leuk en actief spel voor ouderen. Het spel combineer
 ## Installatie
 1. **Clone de repository**:
    ```bash
-   git clone https://github.com/jouw-username/fiets-voor-bejaarden.git](https://github.com/TijnJanssen/GIP.git
+   git clone https://github.com/TijnJanssen/GIP.git
    ```
 2. **Ga naar de projectmap**:
    ```bash
