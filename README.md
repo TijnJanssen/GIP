@@ -32,7 +32,7 @@ Fiets voor Bejaarden is een leuk en actief spel voor ouderen. Het spel combineer
    - Zorg ervoor dat de map `ImgForDem` met afbeeldingen in de projectmap staat.
 4. **Arduino instellen** (optioneel):
    - Upload het bestand `FietsenVoorBejaarden.ino` naar een Arduino-bord.
-   - Sluit knoppen aan op pinnen 2 (spatie), 3 (tab) en 4 (enter).
+   - Sluit knoppen aan op pinnen 2 (spatie), 3 (q) en 4 (enter).
    - Verbind de Arduino met je computer via USB.
 
 ## Gebruik
